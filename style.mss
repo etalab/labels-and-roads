@@ -22,20 +22,36 @@ Map {
   font-directory: url('fonts');
 }
 
+#roads.geo[highway='trunk_link'][zoom>=12]::surface,
+#roads.geo[highway='motorway_link'][zoom>=12]::surface,
+#roads.geo[highway='primary_link'][zoom>=13]::surface,
+#roads.geo[highway='secondary_link'][zoom>=14]::surface,
 #roads.geo[kind='minor_road'][zoom>=16]::surface,
 #roads.geo[highway='trunk'][zoom>=12]::surface,
-#roads.geo[highway='trunk_link'][zoom>=12]::surface,
 #roads.geo[highway='motorway'][zoom>=12]::surface,
-#roads.geo[highway='motorway_link'][zoom>=12]::surface,
 #roads.geo[highway='primary'][zoom>=13]::surface,
 #roads.geo[kind='path'][name!=''][zoom>=17]::surface,
-#roads.geo[kind='major_road'][zoom>=14]::surface {
+#roads.geo[highway='tertiary'][zoom>=14]::surface,
+#roads.geo[highway='secondary'][zoom>=14]::surface {
+    [highway='trunk'],
+    [highway='motorway'] {
+      outline/line-width: 3;
+      outline/opacity: 0.5;
+      outline/line-color: white;
+      [zoom>=15] {outline/line-width: 5;}
+      [zoom>=17] {outline/line-width: 8;}
+    }
     line-color: white;
     line-width: 2;
     opacity: 0.3;
     line-cap: square;
     [zoom>=15] {line-width: 3;}
     [zoom>=17] {line-width: 6;}
+    [highway='trunk'],
+    [highway='motorway'] {
+      opacity: 0.5;
+      line-color: #F9BF3B;
+    }
 }
 #roads.label[kind='minor_road'][zoom>=17],
 #roads.label[kind='path'][name!=''][zoom>=17],
