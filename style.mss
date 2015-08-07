@@ -28,6 +28,7 @@ Map {
 #roads.geo[highway='motorway'][zoom>=12]::surface,
 #roads.geo[highway='motorway_link'][zoom>=12]::surface,
 #roads.geo[highway='primary'][zoom>=13]::surface,
+#roads.geo[kind='path'][name!=''][zoom>=17]::surface,
 #roads.geo[kind='major_road'][zoom>=14]::surface {
     line-color: white;
     line-width: 2;
@@ -37,6 +38,7 @@ Map {
     [zoom>=17] {line-width: 6;}
 }
 #roads.label[kind='minor_road'][zoom>=17],
+#roads.label[kind='path'][name!=''][zoom>=17],
 #roads.label[kind='major_road'][zoom>=14] {
   text-name: '[name]';
   text-size: 12;
