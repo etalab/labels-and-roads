@@ -19,6 +19,7 @@
 
 Map {
   buffer-size: 256;
+  font-directory: url('fonts');
 }
 
 #roads.geo[kind='minor_road'][zoom>=16]::surface,
