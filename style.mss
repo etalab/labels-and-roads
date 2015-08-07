@@ -67,3 +67,14 @@ Map {
   text-margin: 5;
   text-min-padding: 1;
 }
+
+#housenumbers [zoom>=17][housenumber=~"2|.*[01]$"],
+#housenumbers [zoom>=18]
+{
+  text-name: [housenumber];
+  text-size: 10;
+  text-face-name: @sans_bold;
+  text-halo-radius: 1;
+  text-fill: darken(red,20%);
+  text-halo-fill: @city_halo;
+}
