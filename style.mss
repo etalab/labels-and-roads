@@ -78,10 +78,18 @@ Map {
   text-halo-radius: 1;
   text-fill: darken(red,20%);
   text-halo-fill: @city_halo;
+  text-margin: 1;
   [zoom>=17][name_diff<=2]{
     text-orientation: -[azimuth];
     [azimuth>90][azimuth<270] {
       text-orientation: 180-[azimuth];
     }
   }
+
+  // when not enough space to render housenumber, just render a marker
+  marker-width: 4;
+  marker-fill: darken(red,20%);
+  marker-line-color: white;
+  marker-line-width: 0.7;
+
 }
