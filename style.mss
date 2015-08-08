@@ -26,6 +26,7 @@ Map {
 #roads.geo[highway='motorway_link'][zoom>=12]::surface,
 #roads.geo[highway='primary_link'][zoom>=13]::surface,
 #roads.geo[highway='secondary_link'][zoom>=14]::surface,
+#roads.geo[highway='tertiary_link'][zoom>=14]::surface,
 #roads.geo[kind='minor_road'][zoom>=16]::surface,
 #roads.geo[highway='trunk'][zoom>=12]::surface,
 #roads.geo[highway='motorway'][zoom>=12]::surface,
@@ -68,7 +69,7 @@ Map {
   text-min-padding: 1;
 }
 
-#housenumbers [zoom>=17][housenumber=~"2|.*[01]$"],
+#housenumbers [zoom>=17][housenumber=~"2|.*[01]$"], // only 1,2,10,11,20,21...
 #housenumbers [zoom>=18]
 {
   text-name: [housenumber];
@@ -77,4 +78,10 @@ Map {
   text-halo-radius: 1;
   text-fill: darken(red,20%);
   text-halo-fill: @city_halo;
+  [zoom>=17][name_diff<=2]{
+    text-orientation: -[azimuth];
+    [azimuth>90][azimuth<270] {
+      text-orientation: 180-[azimuth];
+    }
+  }
 }
