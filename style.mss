@@ -28,8 +28,8 @@ Map {
 #roads.geo[type='secondary_link'][zoom>=14]::surface,
 #roads.geo[type='tertiary_link'][zoom>=14]::surface,
 #roads.geo[category='minor_road'][zoom>=16]::surface,
-#roads.geo[type='trunk'][zoom>=12]::surface,
-#roads.geo[type='motorway'][zoom>=12]::surface,
+#roads.geo[type='trunk'][zoom>=10]::surface,
+#roads.geo[type='motorway'][zoom>=10]::surface,
 #roads.geo[type='primary'][zoom>=13]::surface,
 #roads.geo[category='path'][name!=''][zoom>=17]::surface,
 #roads.geo[type='tertiary'][zoom>=14]::surface,
@@ -37,20 +37,18 @@ Map {
     [type='trunk'],
     [type='motorway'] {
       outline/line-width: 3;
-      outline/opacity: 0.5;
       outline/line-color: white;
       [zoom>=15] {outline/line-width: 5;}
       [zoom>=17] {outline/line-width: 8;}
     }
     line-color: white;
     line-width: 2;
-    opacity: 0.3;
+    opacity: 0.6;
     line-cap: square;
     [zoom>=15] {line-width: 3;}
     [zoom>=17] {line-width: 6;}
     [type='trunk'],
     [type='motorway'] {
-      opacity: 0.5;
       line-color: #F9BF3B;
       [zoom>=16][tunnel=1] {
         line-dasharray: 10,5;
