@@ -22,20 +22,20 @@ Map {
   font-directory: url('fonts');
 }
 
-#roads.geo[highway='trunk_link'][zoom>=12]::surface,
-#roads.geo[highway='motorway_link'][zoom>=12]::surface,
-#roads.geo[highway='primary_link'][zoom>=13]::surface,
-#roads.geo[highway='secondary_link'][zoom>=14]::surface,
-#roads.geo[highway='tertiary_link'][zoom>=14]::surface,
-#roads.geo[kind='minor_road'][zoom>=16]::surface,
-#roads.geo[highway='trunk'][zoom>=12]::surface,
-#roads.geo[highway='motorway'][zoom>=12]::surface,
-#roads.geo[highway='primary'][zoom>=13]::surface,
-#roads.geo[kind='path'][name!=''][zoom>=17]::surface,
-#roads.geo[highway='tertiary'][zoom>=14]::surface,
-#roads.geo[highway='secondary'][zoom>=14]::surface {
-    [highway='trunk'],
-    [highway='motorway'] {
+#roads.geo[type='trunk_link'][zoom>=12]::surface,
+#roads.geo[type='motorway_link'][zoom>=12]::surface,
+#roads.geo[type='primary_link'][zoom>=13]::surface,
+#roads.geo[type='secondary_link'][zoom>=14]::surface,
+#roads.geo[type='tertiary_link'][zoom>=14]::surface,
+#roads.geo[category='minor_road'][zoom>=16]::surface,
+#roads.geo[type='trunk'][zoom>=12]::surface,
+#roads.geo[type='motorway'][zoom>=12]::surface,
+#roads.geo[type='primary'][zoom>=13]::surface,
+#roads.geo[category='path'][name!=''][zoom>=17]::surface,
+#roads.geo[type='tertiary'][zoom>=14]::surface,
+#roads.geo[type='secondary'][zoom>=14]::surface {
+    [type='trunk'],
+    [type='motorway'] {
       outline/line-width: 3;
       outline/opacity: 0.5;
       outline/line-color: white;
@@ -48,15 +48,19 @@ Map {
     line-cap: square;
     [zoom>=15] {line-width: 3;}
     [zoom>=17] {line-width: 6;}
-    [highway='trunk'],
-    [highway='motorway'] {
+    [type='trunk'],
+    [type='motorway'] {
       opacity: 0.5;
       line-color: #F9BF3B;
+      [zoom>=16][tunnel=1] {
+        line-dasharray: 10,5;
+        line-cap: butt;
+      }
     }
 }
-#roads.label[kind='minor_road'][zoom>=17],
-#roads.label[kind='path'][name!=''][zoom>=17],
-#roads.label[kind='major_road'][zoom>=14] {
+#roads.label[category='minor_road'][zoom>=17],
+#roads.label[category='path'][name!=''][zoom>=17],
+#roads.label[category='major_road'][zoom>=14] {
   text-name: '[name]';
   text-size: 12;
   text-face-name: @sans_bold_italic;
