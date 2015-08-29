@@ -20,10 +20,9 @@ overlay:
   position: -1
 Stylesheet:
 - "style.mss"
-source: 'tms://carto.data.gouv.fr/vector/roads%2Cplaces%2Chousenumbers/{z}/{x}/{y}.mvt'
+source: 'tms://carto.data.gouv.fr/vector/roads+road_labels+ban:housenumbers/{z}/{x}/{y}.mvt'
 layers:
-  - roads.geo
-  - places
-  - roads.label
+  - roads
+  - road_labels
   - housenumbers
 
